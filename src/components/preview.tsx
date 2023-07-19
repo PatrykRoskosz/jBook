@@ -51,6 +51,10 @@ const Preview: React.FC<PreviewProps> = ({ code, errorState }) => {
 		const timer = setTimeout(() => {
 			iframe.current.contentWindow.postMessage(code, "*");
 		}, 50);
+
+    return () => {
+      clearTimeout(timer)
+    }
 	}, [code]);
 
  
